@@ -5,6 +5,8 @@ const fetchServices = createAsyncThunk(
   'services/fetchServices',
   async (ob, thunkAPI) => {
     
+    console.log('111');
+
     try {
       if (ob === undefined) {
         return;
@@ -17,6 +19,7 @@ const fetchServices = createAsyncThunk(
         throw new Error('Failed to fetch Services');
       } else {
         const data = await response.json();
+        console.log(data); //
         return data;
       }
     } catch (error) {

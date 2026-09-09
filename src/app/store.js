@@ -3,7 +3,7 @@ import listOfServices from '../features/listOfServices';
 
 const store = configureStore({
   reducer: {
-    moviesObj: listOfServices,
+    servicesObj: listOfServices,
   },
 });
 

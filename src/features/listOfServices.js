@@ -6,6 +6,8 @@ const initialState = {
   services: [],
 };
 
+// console.log(initialState); // []
+
 const listOfServices = createSlice({
   name: 'servicesSearch',
   initialState,
@@ -15,7 +17,7 @@ const listOfServices = createSlice({
       state.error = '';
     },
     services: (state, action) => {
-      state.movies = action.payload;
+      state.services = action.payload;
     },
   },
   extraReducers: (builder) => {
@@ -33,7 +35,7 @@ const listOfServices = createSlice({
         if (action.payload === undefined) {
           return;
         }
-        state.movies = action.payload.Search;
+        state.services = action.payload.Search;
       })
       // Обработка ошибки (rejected)
       .addCase(fetchServices.rejected, (state, action) => {
