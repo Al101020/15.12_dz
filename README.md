@@ -1,9 +1,38 @@
-# 15.12_dz
-Домашнее задание к занятию "Redux Saga"
+2026.09.09
+	Перестал отображаться проект, http://localhost:5173/, начал сначала:
+	- удалил всё, оставил папку .git,
+	- В терминале запустил установку(Vite):
+yarn create vite my-app --template react
+		на вопросы ответил:
+	◇  Which linter to use?
+  	   - ESLint
+    ◇  Install with yarn and start now?
+       - No
+
+	- Проект должен быть на React с маршрутизацией и Redux-Saga, установил:
+yarn add react-router-dom redux redux-saga @reduxjs/toolkit react-redux
 
 
-==========================================
-2026.09.01
+2026.09.07
+    В терминале запустил установку(Vite):
+yarn create vite my-app --template react
+	(на вопросы ответил:
+	◇  Which linter to use?
+       -  ESLint
+	◇  Install with yarn and start now? ● yes)
+	
+	- После установки появилась папка my-app(В нем удалил созданый README.md), 
+	теперь содержимое этой папки перекидываю в родительскую папку:
+mv my-app/* ./
+	и файл .gitignore:
+mv my-app/.* ./
+	А папку(пустую) my-app удаляю.
+    
+	- Проект должен быть на React с маршрутизацией и Redux-Saga
+yarn add react-router-dom redux redux-saga @reduxjs/toolkit react-redux
+
+
+
 
 # React + Vite
 
