@@ -1,5 +1,6 @@
 // listOfServices - перевод - список услуг
-import { createSlice, current } from '@reduxjs/toolkit';
+// import { createSlice, current } from '@reduxjs/toolkit';
+import { createSlice } from '@reduxjs/toolkit';
 import fetchServices from '../api/fetchServices';
 
 const initialState = {
@@ -8,14 +9,14 @@ const initialState = {
 
 // console.log(initialState); // []
 
-const listOfServices = createSlice({
-  name: 'servicesSearch',
+const listOfServicesReducer = createSlice({
+  name: 'services',
   initialState,
   reducers: {
-    clearError: (state, action) => {
-      state.isError = false;
-      state.error = '';
-    },
+    // clearError: (state, action) => {
+    //   state.isError = false;
+    //   state.error = '';
+    // },
     services: (state, action) => {
       state.services = action.payload;
     },
@@ -35,7 +36,8 @@ const listOfServices = createSlice({
         if (action.payload === undefined) {
           return;
         }
-        state.services = action.payload.Search;
+        state.services = action.payload;
+        // state.services = action.payload.Search;
       })
       // Обработка ошибки (rejected)
       .addCase(fetchServices.rejected, (state, action) => {
@@ -46,4 +48,4 @@ const listOfServices = createSlice({
   },
 });
 
-export default listOfServices;
+export default listOfServicesReducer;

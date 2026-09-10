@@ -1,13 +1,18 @@
-import { useEffect, useState } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
+// import { useEffect, useState } from 'react';
+// import { useSelector, useDispatch } from 'react-redux';
+import { useEffect } from 'react';
+// import { useDispatch } from 'react-redux';
 
 import fetchServices from '../api/fetchServices';
 
 const HomePage = () => {
 
+  // const dispatch = useDispatch();
+
   useEffect(() => {
     // Код побочного эффекта
-    fetchServices;
+    // dispatch(fetchServices());
+    fetchServices();
   }, []);
 
   return (
