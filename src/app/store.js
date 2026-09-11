@@ -1,9 +1,11 @@
 import { configureStore } from '@reduxjs/toolkit';
 import listOfServicesReducer from '../features/listOfServicesReducer';
+// ????? -  панель DevTools, не доделал
+// const ReactReduxDevTools = window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__();
 
 const store = configureStore({
   reducer: {
-    servises: listOfServicesReducer,
+    services: listOfServicesReducer,
   },
 });
 

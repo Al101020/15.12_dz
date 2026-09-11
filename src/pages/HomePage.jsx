@@ -1,5 +1,5 @@
 // import { useEffect, useState } from 'react';
-// import { useSelector, useDispatch } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import { useEffect } from 'react';
 // import { useDispatch } from 'react-redux';
 
@@ -10,10 +10,13 @@ const HomePage = () => {
   // const dispatch = useDispatch();
 
   useEffect(() => {
-    // Код побочного эффекта
-    // dispatch(fetchServices());
+    // Код побочного эффекта     
+    // // dispatch(fetchServices()); - действия должны быт простыми пишит ПК
     fetchServices();
   }, []);
+
+const servicesState = useSelector((state) => state.services.services);
+console.log(servicesState);
 
   return (
     <>
