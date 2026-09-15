@@ -1,15 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
 import fetchServices from '../api/fetchServices';
-// import fetchServices from '../api/fetchServices;
-// const initialState = {
-//   movies: [],
-//   favorites: [...savedStateJsonParse],
-//   isLoading: false,
-//   isError: false,
-//   error: '',
-// };
-
-
 
 const servicesSlice = createSlice({
   name: 'services',
@@ -27,13 +17,13 @@ const servicesSlice = createSlice({
     extraReducers: (builder) => {
     builder
       // Обработка начала загрузки (pending)
-      .addCase(fetchServices.pending, (state) => {
+      .addCase('fetchServices.pending', (state) => {
         state.isLoading = true;
         state.isError = false; // Сбрасываем флаг ошибки при новом запросе
         state.error = '';
       })
       // Обработка успешной загрузки (fulfilled)
-      .addCase(fetchServices.fulfilled, (state, action) => {
+      .addCase('fetchServices.fulfilled', (state, action) => {
         state.isLoading = false;
         state.isError = false;
         if (action.payload === undefined) {
@@ -42,7 +32,7 @@ const servicesSlice = createSlice({
         state.movies = action.payload.Search;
       })
       // Обработка ошибки (rejected)
-      .addCase(fetchServices.rejected, (state, action) => {
+      .addCase('fetchServices.rejected', (state, action) => {
         state.isLoading = false;
         state.isError = true;
         state.error = action.payload || 'Something went wrong';
