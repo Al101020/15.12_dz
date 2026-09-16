@@ -1,4 +1,6 @@
-// Доделать
+
+
+// Доделать - выводит в консоль 4 услуги.
 function fetchServices() {
   fetch('http://localhost:7070/api/services')
     .then(response => {
@@ -13,6 +15,8 @@ export default fetchServices;
 
 
 // // переделать
+// console.log(' - fetchServices.js - ');
+
 // import { createAsyncThunk } from '@reduxjs/toolkit';
 
 // const fetchServices = createAsyncThunk(
@@ -24,6 +28,7 @@ export default fetchServices;
 //         console.log('ob = undefined');
 //         return;
 //       }
+//       console.log('ob = НЕ undefined');
 //       const response = 
 //       // await fetch(`https://www.omdbapi.com?apikey=${ob.apiKey}&s=${ob.textInput}`);
 //       await fetch(`http://localhost:7070/api/services`);

@@ -5,8 +5,7 @@ import listOfServicesReducer from '../features/listOfServicesReducer';
 
 const store = configureStore({
   reducer: {
-    storage: listOfServicesReducer,
-    // services: listOfServicesReducer,
+    services: listOfServicesReducer,
   },
 });
 

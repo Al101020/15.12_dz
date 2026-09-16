@@ -2,7 +2,7 @@ import { createSlice } from '@reduxjs/toolkit';
 import fetchServices from '../api/fetchServices';
 
 const servicesSlice = createSlice({
-  name: 'storage',
+  name: 'services',
   initialState: { 
     services: [],
     isLoading: false,

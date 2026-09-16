@@ -15,12 +15,8 @@ const HomePage = () => {
     fetchServices();
   }, []);
 
-const servicesState = useSelector((state) => state.storage.services);
+const servicesState = useSelector((state) => state.services.services);
 console.log(servicesState);
-// // const servState = useSelector((state) => state.storage);
-// // console.log(servState);
-// const state = useSelector((state) => state);
-// console.log(state);
 
   return (
     <>

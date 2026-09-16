@@ -1,3 +1,5 @@
+
+
 // Доделать
 function fetchServices() {
   fetch('http://localhost:7070/api/services')
