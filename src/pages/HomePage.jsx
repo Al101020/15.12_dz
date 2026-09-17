@@ -1,31 +1,31 @@
-// import { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { useEffect } from 'react';
-// import { useDispatch } from 'react-redux';
+import { useEffect } from 'react';// import { useEffect, useState } from 'react';
 
 import fetchServices from '../api/fetchServices';
+import Services from '../components/Services';
 
 const HomePage = () => {
 
-  // const dispatch = useDispatch();
+  const dispatch = useDispatch();
 
   useEffect(() => {
-    // Код побочного эффекта     
-    // // dispatch(fetchServices()); - действия должны быт простыми пишит ПК
-    fetchServices();
-  }, []);
+    // Код побочного эффекта
+    dispatch(fetchServices());
+  }, [dispatch]);
+  
+  // const servicesState = useSelector((state) => state.storage.services);  // console.log(servicesState);
 
-const servicesState = useSelector((state) => state.storage.services);
-console.log(servicesState);
-// // const servState = useSelector((state) => state.storage);
-// // console.log(servState);
-// const state = useSelector((state) => state);
-// console.log(state);
+  // useEffect(() => {
+  //   // console.log(servicesState);
+  // }, [servicesState]);
 
   return (
     <>
       <h1>Home page - Список услуг и их цена</h1>
-      <div id='services'></div>
+      <div id='services'>
+        <Services />
+        {/* <Services servicesState={servicesState} /> */}
+      </div>
     </>
   );
 };
