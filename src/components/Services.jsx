@@ -27,7 +27,11 @@ function Services() {
       <ul>
         {storage.services.map((service) => (
           <>
-            <li key={service.id} className='service'></li>
+            <li key={service.id} className='service'>
+              <div>{service.id}</div>
+              <div></div>
+              <div></div>
+            </li>
           </>
         ))}
       </ul>
