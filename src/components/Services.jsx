@@ -21,10 +21,25 @@ function Services() {
     )
   };
 
+  // items.map(item => <li key={item.id}>{item.name}</li>);
   return (
     <>
       <h2>Список услуг:</h2>
-      <ul>
+      <ul> 
+        {storage.services.map(service => (
+            <li key={service.id} className='service'>
+              <div>{service.id}</div>
+              <div>{service.name}</div>
+              {/* <div></div> */}
+            </li>
+        ))}
+      </ul>
+
+      {/* <tr>
+        <td></td>
+      </tr> */}
+
+      {/* <ul>
         {storage.services.map((service) => (
           <>
             <li key={service.id} className='service'>
@@ -34,7 +49,7 @@ function Services() {
             </li>
           </>
         ))}
-      </ul>
+      </ul> */}
     </>
   ); 
 };
