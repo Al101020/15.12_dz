@@ -24,7 +24,7 @@ function Services() {
   // items.map(item => <li key={item.id}>{item.name}</li>);
   return (
     <>
-      <h2>Список услуг:</h2>
+      <h2>Список предлагаемых услуг:</h2>
       <ul> 
         {storage.services.map(service => (
             <li key={service.id} className='service'>
