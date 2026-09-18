@@ -27,11 +27,11 @@ function Services() {
       <h2>Список предлагаемых услуг:</h2>
       <ul> 
         {storage.services.map(service => (
-            <li key={service.id} className='service'>
-              <div>{service.id}</div>
-              <div>{service.name}</div>
-              {/* <div></div> */}
-            </li>
+          <li key={service.id} className='service'>
+            <span className='displayNone'>{service.id} - </span>
+            <div className='name'>{service.name}</div>
+            <div className='price'>{service.price}</div>
+          </li>
         ))}
       </ul>
 

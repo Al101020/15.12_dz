@@ -11,3 +11,22 @@
 .red {
   color: red;
 }
+
+/* .li {
+  display: flex;
+  flex-wrap: wrap;
+} */
+
+.name {
+  display: inline-block;
+  width: 200px;
+}
+
+.price {
+  display: inline-block;
+  width: 45px;
+}
+
+.displayNone {
+  display: none;
+}
