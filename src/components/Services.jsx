@@ -17,7 +17,11 @@ function Services() {
 
   if (storage.services.length === 0) {
     return (
-      <h2>Список услуг:</h2>
+      <>
+        <h2>Список услуг:</h2>
+        {/* <div><img src='../src/assets/spinner.png'></img></div> */}
+        {/* <div><img src='../assets/spinner.png'></img></div> */}
+      </>
     )
   };
 
@@ -28,8 +32,10 @@ function Services() {
       <ul> 
         {storage.services.map(service => (
           <li key={service.id} className='service'>
+            
             <span className='displayNone'>{service.id} - </span>
-            <div className='name'>{service.name}</div>
+            <a href="#"><div className='name'>{service.name}</div></a>
+            
             <div className='price'>{service.price}</div>
           </li>
         ))}

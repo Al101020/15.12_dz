@@ -30,3 +30,7 @@
 .displayNone {
   display: none;
 }
+
+a:hover {
+  color: green;
+}
