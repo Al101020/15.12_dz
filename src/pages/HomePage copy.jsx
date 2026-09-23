@@ -1,6 +1,7 @@
 import { useSelector, useDispatch } from 'react-redux';
 import { useEffect } from 'react';// import { useEffect, useState } from 'react';
 
+// import fetchServices from '../api/fetchServices';
 import fetchServicesUpload from '../api/fetchServicesUpload';
 import Services from '../components/Services';
 
@@ -8,10 +9,10 @@ const HomePage = () => {
 
   const dispatch = useDispatch();
 
-  // useEffect(() => {
-  //   // Код побочного эффекта
-  //   dispatch(fetchServicesUpload());
-  // }, [dispatch]);
+  useEffect(() => {
+    // Код побочного эффекта
+    dispatch(fetchServices());
+  }, [dispatch]);
   
   // const servicesState = useSelector((state) => state.storage.services);  // console.log(servicesState);
 

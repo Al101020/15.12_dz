@@ -1,5 +1,11 @@
 import { createSlice } from '@reduxjs/toolkit';
-import fetchServices from '../api/fetchServices';
+import {
+  SERVICES_UPLOAD_REQUEST,
+  SERVICES_UPLOAD_FAILURE,
+  SERVICES_UPLOAD_SUCCESS,
+} from "../actions/actionTypes";
+// import fetchServices from '../api/fetchServices';
+import fetchServicesUpload from '../api/fetchServicesUpload';
 
 const servicesSlice = createSlice({
   name: 'storage',
@@ -18,13 +24,13 @@ const servicesSlice = createSlice({
     extraReducers: (builder) => {
     builder
       // Обработка начала загрузки (pending)
-      .addCase(fetchServices.pending, (state) => {// console.log('начало загрузки'); // работает
+      .addCase(SERVICES_UPLOAD_REQUEST, (state) => {// console.log('начало загрузки'); // работает
         state.isLoading = true;
         state.isError = false; // Сбрасываем флаг ошибки при новом запросе
         state.error = '';
       })
       // Обработка успешной загрузки (fulfilled)
-      .addCase(fetchServices.fulfilled, (state, action) => {
+      .addCase(SERVICES_UPLOAD_SUCCESS, (state, action) => {
         state.isLoading = false;
         state.isError = false;
 
@@ -35,7 +41,7 @@ const servicesSlice = createSlice({
         state.services = action.payload;
       })
       // Обработка ошибки (rejected)
-      .addCase(fetchServices.rejected, (state, action) => {
+      .addCase(SERVICES_UPLOAD_FAILURE, (state, action) => {
         state.isLoading = false;
         state.isError = true;
         state.error = action.payload || 'Something went wrong';
