@@ -1,6 +1,6 @@
 // 2026.09.22 console.log(' - fetchServicesUpload.js - ');
 
-export const fetchServicesUpload = async () => {
+const fetchServicesUpload = async () => {
   // const params = new URLSearchParams({ q: search });
 
   const response = await fetch('http://localhost:7070/api/services');

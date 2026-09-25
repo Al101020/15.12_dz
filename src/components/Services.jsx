@@ -1,20 +1,53 @@
 import { useSelector, useDispatch } from 'react-redux';
+import { servicesUploadRequest } from '../actions/actionCreators';
+
+import { useEffect } from 'react';
 
 export default function Services() {
   const {services, isLoading, isError, error} = useSelector((state) => state.storage);
-  console.log(services);
-  console.log(isLoading);
-  console.log(isError);
-  console.log(error);
+  // console.log(services);
+  // console.log(isLoading);
+  // console.log(isError);
+  // console.log(error);
+
+  const dispatch = useDispatch()
+
+  useEffect(() => {
+    // Код побочного эффекта
+    dispatch(servicesUploadRequest());
+  }, []); // При загрузке
+
+  // useEffect(() => {
+  //   // Код побочного эффекта
+  //   console.log(isLoading);
+  //   if (isLoading === true) {
+  //     console.log('isLoading = true');
+  //   };
+  //   if (isLoading !== true) {
+  //     console.log('isLoading != true');
+  //   }
+  // }, [isLoading]); // При изменении isLoading
+
+  useEffect(() => {
+    // Код побочного эффекта изменения 'services'
+    console.log(services);
+    // if (services.length === 0) {
+    //   console.log('services = []');
+    // };
+    if (services.length !== 0) {
+      console.log('services != []');
+    }
+  }, [services]); // При изменении services
+
+};
+
+
+
 
   // const state = useSelector((state) => state.storage);
   // console.log(state);
 
-
-
-  const dispatch = useDispatch()
-
-  // const storage = useSelector((state) => state.storage);
+ // const storage = useSelector((state) => state.storage);
   // console.log(storage.services);
 
   // if (storage.services.length === 0) {
@@ -43,6 +76,4 @@ export default function Services() {
   //     </ul>
   //   </>
   // ); 
-};
-
 // export default Services;

@@ -1,3 +1,6 @@
+2026.09.25
+https://github.com/redux-saga/redux-saga/blob/main/README_ru.md?ysclid=mugapv601l557556305
+
 2026.09.09
 	Перестал отображаться проект, http://localhost:5173/, начал сначала:
 	- удалил всё, оставил папку .git,
