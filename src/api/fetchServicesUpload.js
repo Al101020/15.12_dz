@@ -1,19 +1,30 @@
 // 2026.09.22 console.log(' - fetchServicesUpload.js - ');
 
 const fetchServicesUpload = async () => {
-  // const params = new URLSearchParams({ q: search });
 
   const response = await fetch('http://localhost:7070/api/services');
-  if (!response.ok) {
-    throw new Error('Failed to fetch Services');
-    // throw new Error(response.statusText);
+  if (!response.ok) {    // throw new Error('Failed to fetch Services');
+    throw new Error(response.statusText);
   }
   return await response.json();
 };
 
 export default fetchServicesUpload;
 
+export function* uploadServicesGenerator() {
+  while (true) {
+    try {
+      const data = yield (fetchServicesUpload());
+      console.info(data);
+    } catch (e) {
+      console.warn(e.massege);
+    }
+  }
+}
 
+
+
+// + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + +
 // // import { createAsyncThunk } from '@reduxjs/toolkit';
 
 // const fetchServices = createAsyncThunk(

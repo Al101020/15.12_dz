@@ -5,7 +5,7 @@ import {
   SERVICES_UPLOAD_SUCCESS,
 } from "../actions/actionTypes";
 // import fetchServices from '../api/fetchServices';
-// import fetchServicesUpload from '../api/fetchServicesUpload';
+import fetchServicesUpload from '../api/fetchServicesUpload';
 
 const servicesSlice = createSlice({
   name: 'storage',

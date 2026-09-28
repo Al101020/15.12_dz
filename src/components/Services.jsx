@@ -10,23 +10,17 @@ export default function Services() {
   // console.log(isError);
   // console.log(error);
 
-  const dispatch = useDispatch()
+  // const sTaTe = useSelector((state) => state); // --- Для проверки
+  // useEffect(() => {
+  //   console.log(sTaTe);
+  // }, [sTaTe]); // При изменении state // --- Для проверки
+
+  const dispatch = useDispatch();
 
   useEffect(() => {
     // Код побочного эффекта
     dispatch(servicesUploadRequest());
-  }, []); // При загрузке
-
-  // useEffect(() => {
-  //   // Код побочного эффекта
-  //   console.log(isLoading);
-  //   if (isLoading === true) {
-  //     console.log('isLoading = true');
-  //   };
-  //   if (isLoading !== true) {
-  //     console.log('isLoading != true');
-  //   }
-  // }, [isLoading]); // При изменении isLoading
+  }, []); // срабатыват при начальной загрузке
 
   useEffect(() => {
     // Код побочного эффекта изменения 'services'
@@ -40,6 +34,8 @@ export default function Services() {
   }, [services]); // При изменении services
 
 };
+
+
 
 
 
