@@ -26,7 +26,7 @@ const servicesSlice = createSlice({
     builder
       // Обработка начала загрузки (pending)
       .addCase(SERVICES_UPLOAD_REQUEST, (state) => {
-        console.log('начало загрузки'); // работает
+        // console.log('начало загрузки'); // работает
         // console.log(state); // не видел
 
         state.isLoading = true;
@@ -35,7 +35,7 @@ const servicesSlice = createSlice({
       })
       // Обработка успешной загрузки (fulfilled)
       .addCase(SERVICES_UPLOAD_SUCCESS, (state, action) => {
-        console.log('SUCCESS-fulfilled'); // не видел
+        // console.log('SUCCESS-fulfilled'); // не видел
 
         state.isLoading = false;
         state.isError = false;
@@ -48,7 +48,7 @@ const servicesSlice = createSlice({
       })
       // Обработка ошибки (rejected)
       .addCase(SERVICES_UPLOAD_FAILURE, (state, action) => {
-        console.log('FAILURE-error');
+        // console.log('FAILURE-error');
 
         state.isLoading = false;
         state.isError = true;

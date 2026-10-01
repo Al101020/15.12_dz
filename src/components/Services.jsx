@@ -20,19 +20,74 @@ export default function Services() {
   useEffect(() => {
     // Код побочного эффекта
     dispatch(servicesUploadRequest());
-  }, []); // срабатыват при начальной загрузке
+  }, [dispatch]); // срабатыват при начальной загрузке
 
   useEffect(() => {
     // Код побочного эффекта изменения 'services'
-    console.log(services);
+    // console.log(services);
+    // console.log(services.items);
+
     // if (services.length === 0) {
     //   console.log('services = []');
     // };
     if (services.length !== 0) {
-      console.log('services != []');
+      // console.log('services != []');
     }
   }, [services]); // При изменении services
 
+
+    function repeatRequest() {
+      // console.log('Кнопка: Повторить запрос');
+      dispatch(servicesUploadRequest());
+    }
+
+    function serviceSelected(e) {      // console.log('выбран сервис');
+      const service = e.target.parentElement.parentElement
+      // const nameServiceSelected = service.children[1].textContent
+      // console.log('name - ' + nameServiceSelected);
+      const idServiceSelected = service.children[0].textContent
+      console.log('id - ' + idServiceSelected);
+    }
+
+  if (isLoading === true) {
+    return (
+      <>
+        <h2>Список услуг:</h2>
+        <div className='red'>Загрузка...</div>
+        <div><img src='../src/assets/spinner.png'></img></div>
+      </>
+    )
+  } else {
+    if (isError === true) {
+      // console.log('Ошибка');
+      return (
+        <>
+          <h2>Список услуг:</h2>
+          <div className='red'>Ошибка загрузки услуг:</div>
+          <div>"{error.error}"</div>
+          <button onClick={repeatRequest}>Повторить запрос</button>
+        </>
+      )
+    } else if(services.items) {
+      // console.log('Значит загрузка прошла успешно');
+      return (
+        <>
+          <h2>Список услуг:</h2>
+          <ul> 
+            {services.items.map(service => (
+              <li key={service.id} className='service'>
+            
+                <span className='displayNone'>{service.id}</span>
+                <a href="#" onClick={serviceSelected}><div className='name'>{service.name}</div></a>
+              
+                <div className='price'>{service.price}</div>
+              </li>
+            ))}
+          </ul>
+        </>
+      )
+    }
+  }
 };
 
 
