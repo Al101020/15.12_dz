@@ -9,6 +9,7 @@ export default function Services() {
   // console.log(isLoading);
   // console.log(isError);
   // console.log(error);
+  
 
   // const sTaTe = useSelector((state) => state); // --- Для проверки
   // useEffect(() => {
@@ -42,6 +43,12 @@ export default function Services() {
     }
 
     function serviceSelected(e) {      // console.log('выбран сервис');
+
+      // window.location.href = '/details.html'; // или '/pages/details.html'
+      // const url = window.location.href;
+      // console.log(url);
+      window.location.href = '/details';
+
       const service = e.target.parentElement.parentElement
       // const nameServiceSelected = service.children[1].textContent
       // console.log('name - ' + nameServiceSelected);

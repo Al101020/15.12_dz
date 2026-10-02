@@ -1,8 +1,8 @@
 import { configureStore } from '@reduxjs/toolkit';
 import listOfServicesReducer from '../features/listOfServicesReducer';
-import serviceDetailsReducer from '../features/serviceDetailsReducer'
 
 import createSagaMiddleware from "redux-saga";
+// import { rootSaga } from '../sagas/servicesSaga';
 import rootSaga from '../sagas/servicesSaga';
 
 const sagaMiddleware = createSagaMiddleware();
@@ -10,7 +10,6 @@ const sagaMiddleware = createSagaMiddleware();
 const store = configureStore({
   reducer: {
     storage: listOfServicesReducer,
-    details: serviceDetailsReducer,
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({

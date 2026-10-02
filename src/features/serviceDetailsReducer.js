@@ -1,19 +1,18 @@
 import { createSlice } from '@reduxjs/toolkit';
 import {
-  SERVICES_UPLOAD_REQUEST,
-  SERVICES_UPLOAD_FAILURE,
-  SERVICES_UPLOAD_SUCCESS,
+  SERVICE_DETAILS_UPLOAD_REQUEST,
+  SERVICE_DETAILS_UPLOAD_FAILURE,
+  SERVICE_DETAILS_UPLOAD_SUCCESS,
 } from "../actions/actionTypes";
-// import fetchServices from '../api/fetchServices';
-// import fetchServicesUpload from '../api/fetchServicesUpload';
+// import fetchServiceDetails from '../api/fetchServiceDetails';
 
-const servicesSlice = createSlice({
-  name: 'storage',
+const serviceDetailsReducer = createSlice({
+  name: 'details',
   initialState: { 
-    services: [],
-    isLoading: false,
-    isError: false,
-    error: '',
+    Details: [],
+    isLoadingDetails: false,
+    isErrorDetails: false,
+    errorDetails: '',
   },
   reducers: {},
   // reducers: {
@@ -25,34 +24,34 @@ const servicesSlice = createSlice({
     extraReducers: (builder) => {
     builder
       // Обработка начала загрузки (pending)
-      .addCase(SERVICES_UPLOAD_REQUEST, (state) => {
+      .addCase(SERVICE_DETAILS_UPLOAD_REQUEST, (state) => {
         // console.log('начало загрузки'); // работает
         // console.log(state); // не видел
 
-        state.isLoading = true;
-        state.isError = false; // Сбрасываем флаг ошибки при новом запросе
-        state.error = '';
+        state.isLoadingDetails = true;
+        state.isErrorDetails = false; // Сбрасываем флаг ошибки при новом запросе
+        state.errorDetails = '';
       })
       // Обработка успешной загрузки (fulfilled)
-      .addCase(SERVICES_UPLOAD_SUCCESS, (state, action) => {
+      .addCase(SERVICE_DETAILS_UPLOAD_SUCCESS, (state, action) => {
         // console.log('SUCCESS-fulfilled'); // не видел
 
-        state.isLoading = false;
-        state.isError = false;
+        state.isLoadingDetails = false;
+        state.isErrorDetails = false;
 
         if (action.payload === undefined) {
           return;
         }
 
-        state.services = action.payload;
+        state.Details = action.payload;
       })
       // Обработка ошибки (rejected)
-      .addCase(SERVICES_UPLOAD_FAILURE, (state, action) => {
+      .addCase(SERVICE_DETAILS_UPLOAD_FAILURE, (state, action) => {
         // console.log('FAILURE-error');
 
-        state.isLoading = false;
-        state.isError = true;
-        state.error = action.payload || 'Something went wrong';
+        state.isLoadingDetails = false;
+        state.isErrorDetails = true;
+        state.errorDetails = action.payload || 'Something went wrong';
       });
   },
 });
@@ -61,4 +60,4 @@ const servicesSlice = createSlice({
 // export const { newServices } = servicesSlice.actions;
 
 // export const { services } = servicesSlice.actions;
-export default servicesSlice.reducer;
+export default serviceDetailsReducer.reducer;
